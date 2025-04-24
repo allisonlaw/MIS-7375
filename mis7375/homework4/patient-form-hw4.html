@@ -1,0 +1,433 @@
+    <!--
+    Program name: patient-form.html
+    Author: Allison Lawrence
+    Date created:1/30/2025
+    Date last edited: 3/7/2025
+    Version: 4.0
+    Description: This is a patient registration form for Lavender holistic clinic
+    which offers natural health remedies dervied from organic herbs. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Allison's Homework 4 </title>
+    <!-- link to external CSS and JS file -->
+    <link href="./style-hw4.css" rel="stylesheet"> 
+    <script src="./patient-form-javascript-hw4.js" defer></script>
+</head>  
+<body>
+
+    <!-- header section with td id for css styling -->
+<div id="header"> 
+<table>
+    <tr>
+         <!-- insert link to logo of clinic and format on the left -->
+         <td id="logo-cell">
+             <img
+                id = "Cliniclogo"
+                src="./Lavender_Holistic_Clinic_Logo.jpg" 
+                alt="Lavender Holistic Clinic" >
+         </td>
+         <!-- clinic name in the center of page -->
+         <td id="clinic-name">
+            <span>Lavender Holistic Clinic </span>
+        </td>
+        <!-- customer date on the right -->
+        <td id = "date-cell" valign="bottom" align="right">
+            Today's date: <span id="dynamicdate"> </span>
+        </td>
+        <!-- defined date id as "dynamicdate" and plug in javascript outside of table -->
+    </tr>
+</table>
+
+<!-- cookie-based welcome and reset -->
+<div id="welcome-message" class="welcome-text"></div>
+<label id="reset-label">
+  <input type="checkbox" id="resetUserCheckbox">
+  Not <span id="userNameSpan">you</span>? Click here to start as a new user
+</label>
+
+<script>
+    document.getElementById("dynamicdate").innerHTML = new Date().toLocaleDateString();
+</script>
+</div>
+
+<!-- javascript for dynamic date above-->
+<script>
+    document.getElementById("dynamicdate").innerHTML = new Date().toLocaleDateString();
+</script>
+</div>
+
+<!-- review section that will be hidden initially -->
+<div id="reviewForm" style="display:none;">
+    <h3> Please review your information: </h3>
+    <ul id="reviewContent"></ul>
+</div>
+
+<!-- form section -->
+
+<div id = "body">
+    <!-- directs submissions to the thank you page and adds selector for javascript -->
+    <form id ="registrationForm" >
+    <!-- commenting this out temporarily to test cookie logic action="https://allisonlaw.w3spaces.com/mis7375/homework4/thank-you-hw4.html"> -->
+    
+    <table class = "form">
+        <!-- New Patient Information Section of form -->
+        <tr>
+            <th class = "form" colspan= "3">New Patient Information: Fill out the information below to register as a new patient.</th>
+        </tr>
+        <tr>
+            <td>
+            <br>
+            <!-- removing pattern, minlength, maxlength from label so all validation handle through JS -->
+             <label for="fname">First name:</label>
+             <input type="text" id="fname" name="fname" required
+             title="First name must be 1 - 30 characters and can only contain letters, dashes, or apostrophes."
+             oninvalid="this.setCustomValidity('First Name not valid. Only letters, dashes, and apostrophes are allowed.')"
+             oninput="this.setCustomValidity('')">
+             <span id="fnameError" class="error"></span>
+             <br><br>
+
+            <!-- removing pattern, minlength, maxlength from label so all validation handle through JS -->
+            <label for = "mname">Middle initial: </label>
+            <input type="text" id="mname" name="mname"
+            title="Middle initial must be a single letter (A-Z) or left blank."
+            oninvalid="this.setCustomValidity('Middle Initial must be a single letter or left blank.')"
+            oninput="this.setCustomValidity('')">
+            <span id="mnameError" class="error"></span>
+             <br><br>
+            <!-- removing pattern, minlength, maxlength from label so all validation handle through JS -->
+            <label for = "lname">Last name: </label>
+            <input type="text" id="lname" name="lname" required
+            title="Last name must be 1-30 characters long and can only contain letters, apostrophes ('), dashes (-), and numbers (2-5)."
+            oninvalid="this.setCustomValidity('Last Name not valid. Only letters, apostrophes, dashes, and numbers 2-5 are allowed.')"
+            oninput="this.setCustomValidity('')">
+            <span id="lnameError" class="error"></span>
+             <br><br>
+            <!-- removing pattern, minlength, maxlength from label so all validation handle through JS -->
+            <label for = "addressline1">Address Line 1: </label>
+            <input type="text" id="addressline1" name="addressline1" required
+            title="Address must be 2-30 characters long.">
+            <span id="address1Error" class="error"></span>
+             <br><br>
+            <!-- removing pattern, minlength, maxlength from label so all validation handle through JS -->
+            <label for = "addressline2">Address Line 2: </label>
+            <input type="text" id="addressline2" name="addressline2" maxlength="30">
+            <span id="address2Error" class="error"></span>
+             <br><br>
+            <!-- removing pattern, minlength, maxlength from label so all validation handle through JS -->
+            <label for = "city">City: </label>
+            <input type="text" id="city" name="city" required
+            title="City name must be 2-30 characters and only contain letters, spaces, hyphens, or apostrophes.">
+            <span id="cityError" class="error"></span>
+
+            <label for = "state">State: </label>
+            <!-- list of states was copied from assignment 1 footer example and PR/DR were added -->
+            <!-- state dropdown was updated with selectors for javascript function -->
+            <select id="state" name="state" required
+                title="Select your state from the list. This field is required."
+                oninvalid="this.setCustomValidity('Please select a state.')"
+                oninput="this.setCustomValidity('')">
+            <option value=""></option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="DC">Dominican Republic</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="PA">Puerto Rico</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+            </select>
+            <!-- adding error message for state -->
+            <span id="stateError" class="error"></span>
+
+            <!-- removing pattern, minlength, maxlength from label so all validation handle through JS -->
+            <label for = "zipcode">Zipcode: </label>
+            <input type="text" id="zipcode" name="zipcode" required
+            title="Enter a 5-digit zip code or ZIP+4 (e.g., 77002 or 77002-1234)"
+            oninvalid="this.setCustomValidity('Invalid zip code. Please enter a 5-digit or ZIP+4 code.')"
+            oninput="this.setCustomValidity('')">
+            <span id="zipError" class="error"></span>
+             <br><br>
+            
+            <!-- phone number pattern and error message updated --> 
+            <label for = "phonenumber">Phone number: </label>
+            <input type="tel" id="phonenumber" name="phonenumber" required
+            title="Enter a phone number in the format 000-000-0000"
+            oninvalid="this.setCustomValidity('Invalid phone number format. Please use 000-000-0000.')"
+            oninput="this.setCustomValidity('')">
+            <span id="phoneError" class="error"></span>
+             <br><br>
+
+            <!-- email updated with pattern and error message -->
+            <label for = "emailaddress">Email Address: </label>
+            <input type="email" id="emailaddress" name="emailaddress" required
+            placeholder="example@email.com"
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            title="Enter a valid email in the format name@domain.tld"
+            oninvalid="this.setCustomValidity('Invalid email format. Please enter a valid email (name@domain.tld).')"
+            oninput="this.setCustomValidity('')">
+            <span id="emailError" class="error"></span>
+             <br><br>
+
+            <!-- updating birthday with error message -->
+             <label for = "birthday">Date of Birth: </label>
+            <input type="date" id="birthday" name="birthday" required>
+            <span id="birthdayError" class="error"></span>
+             <br><br>
+
+            <label for = "socialsecurity">Social Security: </label>
+            <input type="password" id="socialsecurity" name="socialsecurity" required
+            title="Enter your Social Security Number (9 digits, hidden for privacy)."
+            placeholder="123-45-6789"
+            autocomplete="off"
+            oninvalid="this.setCustomValidity('Please enter your 9-digit Social Security Number.')"
+            oninput="this.setCustomValidity('')">
+            <span id="ssnError" class="error"></span>
+            <br><br>
+
+        </td>
+        </tr>
+
+<!-- Create Patient Account Section of form -->
+        <tr>
+            <th class = "form" colspan= "3">Create Patient Account: Fill out the information below to create an account.</th>
+         </tr>
+        <tr>
+            <td>
+            <br>
+            <!-- removing pattern, minlength, maxlength from label so all validation handle through JS -->
+             <label for="username">User Name:</label>
+             <input type="username" id="username" name="username" required
+                    title="Must be 5-30 characters, start with a letter, and contain only letters, numbers, underscores, or dashes.">
+             <!-- adding selectors to reference javascript -->
+             <span id="usernameError" class="error"></span>
+             <br><br>
+            <!-- removing pattern, minlength, maxlength from label so all validation handle through JS -->
+            <label for = "password">Password: </label>
+            <input type="password" id="password" name="password" required
+                title="Must be 8-30 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 special character (@$!%*?&^#()-_+=). Quotes are not allowed."
+                oninvalid="this.setCustomValidity('Password must be 8-30 characters with at least 1 uppercase, 1 lowercase, 1 number, and 1 special character. Quotes are not allowed.')"
+                oninput="this.setCustomValidity('')">
+            <!-- adding selectors to reference javascript -->
+            <span id="passwordError" class="error"></span>
+             <br><br>
+            <!-- removing pattern, minlength, maxlength from label so all validation handle through JS -->
+            <label for = "repeatpassword">Repeat Password: </label>
+            <input type="password" id="repeatpassword" name="repeatpassword" required
+                title="Re-enter your password to confirm. It must match exactly."
+                oninvalid="this.setCustomValidity('Passwords do not match!')"
+                oninput="this.setCustomValidity('')">
+            <span id="repeatPasswordError" class="error"></span>
+             <br><br>
+        </td>
+        </tr>
+
+<!-- medical history section of form -->
+    <tr>
+        <th class = "form" colspan= "3"> Medical History: Please fill out the information below about your medical history.</th>
+    </tr>
+
+<!-- row for the range slider -->
+    <tr>
+        <td colspan="3">
+        <p>Indicate on a scale of 1 - 10 how do you feel today? 10 being very good and 1 being poorly</p>
+        <div class = "slider-container">
+        <input type="range" min="1" max="10" value="5" id="feelingSlider">
+        <span id="sliderValue">5</span>
+        </div>
+        <div class="range-labels">
+            <span>1 (Very bad)</span>
+            <span>10 (Feeling great)</span>
+        </div>
+        </td>
+    </tr>
+
+<!-- row for herbal supplement checklist-->
+    <tr>
+        <td colspan="3">
+        <p> Check if you are taking any of the following herbal supplements:</p>
+        <input type="checkbox" id="herbalmed1" name="herbalmed1" value="SJW">
+        <label for="herbalmed1"> St. Johns Wart</label><br>
+
+        <input type="checkbox" id="herbalmed2" name="herbalmed2" value="Ginseing">
+        <label for="herbalmed2"> Ginseing</label><br>
+
+        <input type="checkbox" id="herbalmed3" name="herbalmed3" value="Cava">
+        <label for="herbalmed3"> Cava</label><br>
+
+        <input type="checkbox" id="herbalmed4" name="herbalmed4" value="Caffeine">
+        <label for="herbalmed4"> Caffeine</label><br>
+
+        <input type="checkbox" id="herbalmed5" name="herbalmed5" value="Valarian Root">
+        <label for="herbalmed5"> Valarian Root</label><br>
+
+        <input type="checkbox" id="notapp" name="notapp" value="None of the above">
+        <label for="notapp"> None of the above</label><br><br>
+        </td>
+    </tr>
+
+<!-- row for radio buttons -->
+    <tr>
+        <td colspan="3">
+        <p>Do you smoke?</p>
+        <input type="radio" id="smokeYes" name="smoke" value="Yes">
+        <label for="smokeYes">Yes</label><br>
+        <input type="radio" id="smokeNo" name="smoke" value="No">
+        <label for="smokeNo">No</label><br>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+        <p>Do you drink alcohol?</p>
+        <input type="radio" id="alcoholYes" name="alcohol" value="Yes">
+        <label for="alcoholYes">Yes</label><br>
+        <input type="radio" id="alcoholNo" name="alcohol" value="No">
+        <label for="alcoholNo">No</label><br>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+        <p>Do you maintain an active lifestyle?</p>
+        <input type="radio" id="activeYes" name="fitness" value="Yes">
+        <label for="activeYes">Yes</label><br>
+        <input type="radio" id="activeNo" name="fitness" value="No">
+        <label for="activeNo">No</label><br>
+        </td>
+    </tr>
+
+<!-- row for text box -->
+    <tr>
+        <td>
+        <label for="patientmed">
+        <p>List any perscription or over the counter medications that you are currently taking:</p>
+        </label>
+        <textarea id="patientmed" name="patientmed" rows="4" cols="50"></textarea>
+        </td>
+    </tr>
+
+<!-- row for remember me checkbox -->
+    <tr>
+        <td>
+            <label>
+            <input type="checkbox" id="rememberMe" checked>
+            Remember me
+            </label>
+        </td>
+    </tr>
+
+<!-- row for form submission --> 
+    <tr>
+        <th class = "form" colspan="3" >
+            Click "Validate" to check your form - if all fields are correct, a "Submit Form" button will appear. 
+            Use "Review" to preview your answers and "Clear Form" to reset everything.
+        </th>
+    </tr>
+    <tr>
+        <td colspan="3" align="center">
+        <!-- adding review button with selector -->
+        <button type="button" id="reviewbutton">Review</button>
+        <!-- replacing traditional submit button with validate button -->
+        <button type="button" id="validateBtn" onclick="validateForm(event)">Validate</button>
+        <!-- this submit button will be dynamically added here if validation passes -->
+        
+        <input type = "reset" value = "Clear Form">
+        </td>
+    </tr>
+</table> <!-- closing the table -->
+
+<!-- section for informational iframe -->
+<div id="iframe-section">
+    <h3>Learn more about herbal supplements:</h3>
+    <iframe 
+        src="https://www.ncbi.nlm.nih.gov/books/NBK536964/" 
+        width="100%" 
+        height="500" 
+        title="Herbs at a Glance"
+        id="infoIframe">
+    </iframe>
+</div>
+</form> <!-- closing the form --> 
+
+</div> <!-- closing the form div --> 
+
+<!-- footer of the page -->
+<div id = "footer">
+    <table width = "100%">
+         <tr>
+         <!-- Insert logo on the left -->
+        <td width= "25%" align = "center">
+            <img
+            id = "Cliniclogo"
+            src="./Lavender_Holistic_Clinic_Logo.jpg" 
+            alt="Lavender Holistic Clinic" 
+            width="150">
+        </td>
+        <!-- Contact header in the middle of footer-->
+        <td width="50%" valign="top">
+            <strong> Lavender Holistic Clinic Contact Information:</strong>
+            <br><br>
+            <span>15958 City Walk,</span><br>
+            <span>Sugar Land, TX,</span><br>
+            <span>77479</span>
+        </td>
+        <!-- Contact details on the right-->
+        <td width="25%" valign="top" align="right">
+            <span>lavenderholistic-clinic@gmail.com</span><br><br>
+            <span>(713) - 857 - 2022</span><br><br>
+            <!-- Instagram Button: this directs to a health and wellness page on Instagram -->
+            <button id="instagram-button" onclick="window.location.href='https://www.instagram.com/herbalife/?hl=en';">
+            Follow us on Instagram </button>
+        </td>
+        </tr>
+    </table>
+</div>
+</body>
+<!-- end of file: patient-form.html =============================================== --> 
+</html>
+

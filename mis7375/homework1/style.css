@@ -1,0 +1,141 @@
+/*
+    Program name: patient-form.html
+    Author: Allison Lawrence
+    Date created:2/2/2025
+    Date last edited:2/12/2025
+    Version: 1.8
+    Description: This is the css file for Lavender holistic clinic */
+  
+
+
+
+/* adjusting the color and formatting of header and footer */
+#header, #footer {
+  background-color: #7a3293;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+
+/*styling the text inside the header and footer */
+#header span, #footer span {
+  font-size: 18px;
+  font-weight:bold;
+  font-family: "Garamond", Georgia, 'Times New Roman', serif;
+}
+
+/*changing the color of the body to a lighter purple for aesthetic purposes */
+body form{
+  background-color: rgb(239, 228, 247);
+  padding:10px;
+}
+
+/*centering all labels inside the form */
+#body table label {
+  display: inline-block;
+  width: 180px;
+  text-align: right;
+  
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+
+/*setting font for the form */
+form {
+    font-family: serif;
+    font-size: 20px;
+    color:black
+}
+
+/* styling for the range slider */
+#feelingSlider {
+    width: 100%;
+    height: 8px;
+    background: rgb(239, 228, 247);
+    border-radius: 5px;
+    border: 1px solid #7a3293;
+    outline: none;
+}
+
+/* styling the slider handle */
+#feelingSlider::-webkit-slider-thumb,
+#feelingSlider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: #7a3293; 
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* range labels formatting */
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+
+/* formatting the footer table*/
+#footer table {
+  width:100%;
+  border-collapse: collapse;
+}
+
+#footer td {
+  padding: 15px;
+  vertical-align: top;
+}
+
+#footer td: nth-child(2) {
+  font-weight: bold;
+  font-sixe: 18px;
+}
+
+#footer td: nth-child(3) {
+  text-align:right;
+}
+
+#footer #ClinicLogo {
+    display: block;
+    width: 150px;
+    border: 2px solid rgb(239, 228, 247);
+    padding: 10px;
+    margin: 0 auto;
+}
+
+#footer a {
+    color: #7a3293;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+/* styling the thank you page */
+
+#body-thankyoupage {
+    background-color: rgb(239, 228, 247);
+    color: #7a3293;
+    text-align: center; 
+    font-family: "Garamond", Georgia, 'Times New Roman', serif;
+    padding: 50px;
+    width: 60%; 
+    margin: 50px auto;
+}
+
+#body-thankyoupage h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#body-thankyoupage h4 {
+    font-size: 24px;
+    font-weight: normal;
+}
+

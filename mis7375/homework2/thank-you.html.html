@@ -1,0 +1,85 @@
+  <!--
+    Program name: patient-form.html
+    Author: Allison Lawrence
+    Date created:2/10/2025
+    Date last edited:2/12/2025
+    Version: 1.6
+    Description: This is the thank you for your submission page for Lavender holistic clinic -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Allison's Homework 1 </title>
+    <!-- link to CSS file saved to homework1 folder -->
+    <link href="./style.css.css" rel="stylesheet">
+</head>  
+<body>
+
+    <!-- header section with td id for css styling -->
+<div id="header"> 
+<table>
+    <tr>
+         <!-- insert link to logo of clinic and format on the left -->
+         <td id="logo-cell">
+             <img
+                id = "Clinic Logo"
+                src="./Lavender_Holistic_Clinic_Logo.png" 
+                alt="Lavender Holistic Clinic" >
+         </td>
+         <!-- clinic name in the center of page -->
+         <td id="clinic-name">
+            <span>Lavender Holistic Clinic </span>
+        </td>
+        <!-- customer date on the right -->
+        <td id = "date-cell>"
+        <td valign="bottom" align="right">
+            Today's date: <span id="dynamicdate"> </span>
+        </td>
+        <!-- defined date id as "dynamicdate" and plug in javascript outside of table -->
+    </tr>
+</table>
+</div>
+<!-- javascript for dynamic date above-->
+<script>
+    document.getElementById("dynamicdate").innerHTML = new Date().toLocaleDateString();
+</script>
+
+
+<!-- body of thank you page -->
+<div id = "body-thankyoupage">
+<h2> Thank you! </h2>
+<br></br>
+<h4> Your submission has been received. </h4>
+
+<!-- footer section -->
+
+<div id = "footer">
+    <table width = "100%">
+                    <tr>
+                        <!-- Insert logo on the left -->
+                        <td width= "25%" 
+                        align = "center">
+                            <img
+                                id = "Clinic Logo"
+                                src="./Lavender_Holistic_Clinic_Logo.png" 
+                                alt="Lavender Holistic Clinic" 
+                                width="150">
+                        </td>
+                        <!-- Contact header in the middle of footer-->
+                    <td width="50%" valign="top">
+                        <strong> Lavender Holistic Clinic Contact Information:</strong>
+                        <br><br>
+                        <span>15958 City Walk,</span><br>
+                        <span>Sugar Land, TX,</span><br>
+                        <span>77479</span>
+                    </td>
+                        <!-- Contact details on the right-->
+                    <td width="25%" valign="top" align="right">
+                        <span>lavenderholistic-clinic@gmail.com</span><br><br>
+                        <span>(713) - 857 - 2022</span><br><br>
+                        <!-- Instagram Button -->
+                        <button id="instagram-button" onclick="window.location.href='https://www.instagram.com/herbalife/?hl=en';">
+                        Follow us on Instagram </button>
+                    </td>
+                    </tr>
+                </table>
